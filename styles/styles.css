@@ -1,0 +1,378 @@
+:root{
+    font-family: "Montserrat", sans-serif;
+    --cor-verde:#58af9b;
+}
+
+/* CONTAINER PRINCIPAL: */
+.container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ecf0f1;
+}
+
+.conteudo {
+    border-radius: 15px;
+    background-color: white;
+    width: 960px;
+    height: 50%;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    
+}
+
+.conteudo::before{
+    content:"";
+    position: absolute;
+    background-color:var(--cor-verde);
+    width: 40%;
+    height: 100%;    
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+/*PRIMEIRA TELA - PRIMEIRA COLUNA: TEXTOS E BOTÕES: */
+.primeira_tela {
+    display: flex;
+}
+
+.primeira_tela .segunda_coluna{
+    z-index: 11;
+}
+
+.primeira_coluna {
+    text-align: center;
+    flex: 1 0 auto;
+    z-index: 10;
+}
+
+.titulo {
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 24px;
+}
+
+.titulo_primario {
+    color: #fff;
+}
+
+.titulo_secundario {
+    color: var(--cor-verde);
+}
+
+/* PARAGRAFOS: */
+.paragrafo {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-top: 1rem;
+}
+
+.paragrafo_primario {
+    color: #fff;
+}
+
+.paragrafo_secundario {
+    color:#bdc3c7;
+    margin-top: 0;
+}
+
+/* BOTÕES: */
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;    
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;    
+    width: 150px;
+    align-self: center;
+    border: none;
+}
+
+.btn_primario{
+    background: transparent;
+    border: 1px solid #fff;
+    margin-top: 2rem;
+    transition: background-color .5s;
+}
+
+.btn_primario:hover{
+    background-color: #fff;
+    color: var(--cor-verde);
+}
+
+.btn_secundario {    
+    background-color: var(--cor-verde);
+    border: 1px solid var(--cor-verde);
+    margin: 1rem;
+    transition: background-color .5s;
+}
+.btn_secundario:hover {
+    background-color: #fff;
+    border: 1px solid var(--cor-verde);
+    color: var(--cor-verde);
+}
+
+/* PRIMEIRA TELA - SEGUNDA COLUNA:COLUNA FORMULARIO: */
+.segunda_coluna {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.social_media {
+    margin: .5rem 0;
+}
+
+.lista_social_media {
+    display:flex;
+    margin: 1rem 0;
+}
+
+.item_social_media {
+    border: 1px solid #bdc3c7;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-left: 10px;
+    color: #95a5a6;
+
+}
+.link_social_media .item_social_media  {
+    transition: background-color .5s;
+}
+.link_social_media:not(:first-child){
+    margin-left: 10px;
+}
+
+.link_social_media:hover .item_social_media {
+    background-color: var(--cor-verde);
+    color: #fff;
+}
+
+/* FORMULARIOS: LOGIN E CADASTRO */
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.formulario input {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #ecf0f1;
+    
+}
+
+.label_input {
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+}
+
+input:focus{
+    outline: 0;
+} 
+
+.mudança_icone {
+    color: #7f8c8d;
+    padding: 0 5px;
+}
+
+/* SEGUNDO TELA: */
+.segunda_tela {
+    position: absolute;
+    display: flex;
+}
+
+.segunda_tela .primeira_coluna{
+    order: 2;
+    z-index: -1;
+}
+
+.segunda_tela .segunda_coluna {
+    order: 1;
+    z-index: -1;
+}
+
+.password {
+    color: #34495E;
+    font-size: 14px;
+    margin: 15px 0;
+    align-self: center;
+}
+
+.password::first-letter {
+    text-transform: capitalize;
+}
+
+/* ORGANIZAÇÃO DAS CAMADAS PARA O BOTÃO ENTRAR  */
+.entrar-js .primeira_tela .primeira_coluna {
+    z-index: -1;
+}
+
+.entrar-js .segunda_tela .primeira_coluna {
+    z-index: 13;
+}
+.entrar-js .segunda_tela .segunda_coluna {
+    z-index: 11;
+}
+
+/* ANIMAÇÃO APENASS PARA OS CONTEÚDOS DE DENTRO DAS TELAS. */
+.entrar-js .conteudo::before {
+    left: 60%;
+    /* DEFININDO BORDA EM APENAS UMA EXTREMIDADE */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    animation: slidein 1.3s;
+    z-index: 12;
+}
+
+.criarConta-js .conteudo::before {
+    animation: slideout 1.3s;
+    z-index: 12;
+}
+
+/* ORGANIZAÇÃO DAS CAMADAS PARA O BOTÃO CRIAR CONTA */
+.criarConta-js .segunda_tela .primeira_coluna,
+.criarConta-js .segunda_tela .segunda_coluna {
+    z-index: -1;
+}
+
+
+.criarConta-js .primeira_tela .primeira_coluna {
+    z-index: 13;
+}
+
+.criarConta-js .primeira_tela .segunda_coluna {
+    z-index: 11;
+}
+
+/* DESLOCAMENTO CONTEUDO ATRAS DO CONTENT:BEFORE  */
+
+.entrar-js .primeira_tela .segunda_coluna { 
+    z-index: -1;
+    position: relative;
+    animation: deslocamentoEsq 1.3s;
+}
+
+.criarConta-js .segunda_tela .segunda_coluna {
+    z-index: -1;
+    position: relative;
+    animation: deslocamentoDir .8s; /* DESLOCAMENTO MENOR, POIS O TEXTO É MAIOR */
+}
+
+/* ANIMAÇÃO PARA O CONTEÚDO */
+@keyframes deslocamentoEsq {
+    from {
+        left: 0;
+        opacity: 1;
+        z-index: 12;
+    }
+    /* INSERÇÕES PARA APRENDIZADO */
+    /* 25% {
+        left: -80px;
+        opacity: .5;
+    }
+    50%{
+        left: -100px;
+        opacity: 1;
+    } */
+    to {
+        left: -110px;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+@keyframes deslocamentoDir {
+    from {
+        left: 0;
+        opacity: 1;
+        z-index: 12;
+    }
+    /* INSERÇÕES PARA APRENDIZADO */
+    /* 25% {
+        left: 80px;
+        opacity: .5;
+    }
+    50%{
+        left: 100px;
+        opacity: 1;
+    } */
+    to {
+        left: 110px;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+/* ANIMAÇÕES CSS */
+
+@keyframes slidein {
+
+    from {
+        left: 0;
+        width: 40%;
+    }
+    /* INSERÇÕES PARA APRENDIZADO */
+    /* 25% {
+        left: 5%;
+        width: 50%;
+    }
+    
+    50% {
+        left: 25%;
+        width: 60%;
+    }
+
+    75% {
+        left: 45%;
+        width: 50%;
+    } */
+
+    to {
+        left: 60%;
+        width: 40%;
+    }
+}
+
+@keyframes slideout {
+
+    from {
+        left: 60%;
+        width: 40%;
+    }
+    /* INSERÇÕES PARA APRENDIZADO */
+    /* 25% {
+        left: 45%;
+        width: 50%;
+    }
+    
+    50% {
+        left: 25%;
+        width: 50%;
+    }
+
+    75% {
+        left: 5%;
+        width: 50%;
+    } */
+
+    to {
+        left: 0;
+        width: 40%;
+    }
+    
+}
