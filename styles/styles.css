@@ -376,3 +376,124 @@ input:focus{
     }
     
 }
+
+@media screen and (max-width: 1040px) {
+
+    /* CONTEUDO PARA PREENCHER A TELA */
+    .conteudo{
+        width: 100%;
+        height: 100%;
+    }
+    /* EFEITO PARA TAMANHO DA TELA VERDE */
+    .conteudo::before {
+        width: 100%;
+        height: 40%;
+        top: 0;
+        border-radius: 0;
+    }
+    /* DEIXANDO A PRIMEIRA E SEGUNDA TELA DIVIDIDAS EM DOIS E EM COLUNAS */
+    .primeira_tela, .segunda_tela {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    /* PREENCHINMENTO DA TELA E TAMBÉM ORGANIZAÇÃO DA MARGEM TOP DA SEGUNDA COLUNA (TELA VERDE) QUE ESTÁ DESALINHADA EM VERSÃO MOBILE/TABLET */
+
+    .primeira_coluna, .segunda_coluna {
+        width: 100%;
+        margin-top: 10rem;
+    }
+    
+    .entrar-js .conteudo::before {
+        top: 60%;
+        left: 0;
+        border-radius: 0;
+    }
+
+    .formulario {
+        width: 90%;
+    }
+
+    /* ADICIONANDO A ANIMAÇÃO FLUIDA DE DESLOCAMENTO PARA CIMA VERSÃO
+     MOBILE */
+    .entrar-js .primeira_tela .segunda_coluna { 
+        z-index: -1;
+        position: relative;
+        animation: deslocamentoCima .8s;
+    }
+    
+    .criarConta-js .segunda_tela .segunda_coluna {
+        z-index: -1;
+        position: relative;
+        animation: deslocamentoBaixo .5s; /* DESLOCAMENTO MENOR, POIS O TEXTO É MAIOR */
+    }
+
+    /* ANIMAÇÃO MOBILE CSS*/
+
+    /* ALTERAÇÃO DA DIREÇÃO DA ANIMAÇÃO DOS FORMULARIOS */
+    @keyframes deslocamentoCima {
+        from {
+            top: 0;
+            opacity: 1;
+            z-index: 14;
+        }
+        to {
+            top: -110px;
+            opacity: 0;
+            z-index: -1;
+        }
+    }
+    
+    
+    @keyframes deslocamentoBaixo {
+    
+        from {
+            top: 0;
+            z-index: 15;
+        }
+        to {
+            top: 110px;
+            z-index: -1;
+        }
+    }
+    
+    /* EFEITO DE DESLIZAMENTO DE CIMA PARA BAIXO */
+    @keyframes slidein {
+    
+        from {
+            top: 0;
+            height: 40%;
+        }
+        to {
+            top: 60%;
+            height: 40%;
+        }
+    }
+    
+    @keyframes slideout {
+    
+        from {
+            top: 60%;
+            height: 40%;
+        }
+        to {
+            top: 0;
+            height: 40%;
+        }
+    }
+   
+}
+
+/* ORGANIZAÇÃO DO FORMULARIO DE CADASTRO EM TELAS MENORES */
+
+@media screen and (max-width: 740px) {
+    .formulario {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .formulario {
+        width: 90%;
+    }
+}
